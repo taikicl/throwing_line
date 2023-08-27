@@ -68,17 +68,16 @@
         })
         .then(() => {});
 
+        // 連投処理
         function Throwing_LINE_message_process(){
-            // let num_of_time = Number(Repeat_Nummber.value);
-            // for(let i=0; i < num_of_time; i++){
-            //     console.log(Repeat_Content.value);
-            // }
-            liff.sendMessages([
-            {
-                type: 'text', //送るメッセージの種類
-                text: Repeat_Content.value, //送るメッセージの内容
-            },
-            ]);
+            let num_of_time = Number(Repeat_Nummber.value);
+            for(let i=0; i < num_of_time; i++){
+                liff.sendMessages([{
+                    type: 'text',
+                    text: Repeat_Content.value,
+                },]);
+            }
+            
         }
 
         // 開発時の実験関数
