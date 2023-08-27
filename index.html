@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LINE-メッセージ連投ツール_ver1.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 </head>
 <style>
+    body{
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
     h2{
+        font-weight: bold;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -49,6 +56,40 @@
         <br>
         <textarea id="re_content" cols="30" rows="10" placeholder="連投する内容"></textarea>
     </div>
-    <div class="performance"><input type="button" value="実行"></div>
+    <div class="performance"><input type="button" value="実行" onclick='Throwing_LINE_message_process()'></div>
+    <!-- LIFF SDKを組み込む -->
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        const Repeat_Nummber = document.getElementById("re_number");
+        const Repeat_Content = document.getElementById("re_content");
+        liff
+        .init({
+            liffId: '2000522657-om4dGvBq', // Use own liffId
+        })
+        .then(() => {});
+
+        function Throwing_LINE_message_process(){
+            // let num_of_time = Number(Repeat_Nummber.value);
+            // for(let i=0; i < num_of_time; i++){
+            //     console.log(Repeat_Content.value);
+            // }
+            liff.sendMessages([
+            {
+                type: 'text', //送るメッセージの種類
+                text: Repeat_Content.value, //送るメッセージの内容
+            },
+            ]);
+        }
+
+        // 開発時の実験関数
+        // function test(){
+        //     let num_of_time = Number(Repeat_Nummber.value);
+        //     for(let i=0; i < num_of_time; i++){
+        //         console.log(Repeat_Content.value);
+        //     }
+        //     console.log(Number(Repeat_Nummber.value));
+        //     console.log(Repeat_Content.value); 
+        // }
+    </script>
 </body>
 </html>
