@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE-メッセージ連投ツール_ver1.2</title>
+</head>
+<style>
+    h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+    }
+    .Repeat_num{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-200px);
+    }
+    .Repeat_con{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        transform: translateY(-100px);
+    }
+    .performance{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+</style>
+<body>
+    <h2>LINEメッセージ連投ツール</h2>
+    <div class="Repeat_num">
+        <label>回数:</label>
+        <input type="number" id="re_number" placeholder="10" style="width: 5%;">
+    </div>
+    <div class="Repeat_con">
+        <label>内容:</label>
+        <br>
+        <textarea id="re_content" cols="30" rows="10"></textarea>
+    </div>
+    <div class="performance"><input type="button" value="実行"></div>
+</body>
+</html>
